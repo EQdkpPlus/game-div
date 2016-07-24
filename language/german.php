@@ -30,9 +30,32 @@ $german_array = array(
 		'Standard',
 	),
 	'factions' => array(),
-	'roles' => array(),
+		'roles' => array(
+		1	=> 'Tank',
+		2	=> 'Support',
+		3	=> 'Schaden',
+	),
 	'lang' => array(
 		'dummy'	=> 'Standard',
+		'uc_cat_items'	=>	'Ausrüstung',
+		'taktik'	=> 'Autorität des Taktikers',
+		'wache'	=> 'Ruf der Wache',
 	),
+		'taktiker' => array(
+		1		=>	'194 Handschuh',
+		2		=>	'204 Handschuh',
+		3		=>	'240 Handschuh',
+		4		=>	'194 Rucksack',
+		5		=>	'204 Rucksack',
+		6		=>	'240 Rucksack',
+		),
+		'wache' => array(
+		1		=>	'194 Handschuh',
+		2		=>	'204 Handschuh',
+		3		=>	'240 Handschuh',
+		4		=>	'194 Rucksack',
+		5		=>	'204 Rucksack',
+		6		=>	'240 Rucksack',
+		),
 );
 ?>

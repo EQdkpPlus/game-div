@@ -27,19 +27,26 @@ if(!class_exists('div')) {
 	class div extends game_generic {#
 		protected static $apiLevel	= 20;
 		public $version				= '0.1.0';
+		public $author				= "Anykan";
 		protected $this_game		= 'div';
-		protected $types			= array();						// which information are stored?
+		protected $types			= array('classes','roles');
 		protected $classes			= array();
-		protected $roles			= array();						// for each type there must be the according var
-		protected $factions			= array();						// and the according function: load_$type
+		
+		
+		
+		protected $roles			= array();						
+		protected $factions			= array();						
 		protected $filters			= array();
 		protected $realmlist		= array();
 		protected $professions		= array();
-		public $langs				= array('german');	// in which languages do we have information?
+		public $langs				= array('german');	
 
 		protected $class_dependencies = array();
-		public $default_roles		= array();
-		protected $class_colors		= array();
+		public $default_roles		= array(
+			1 => array(1,2,3),
+		);
+		protected $class_colors		= array(
+			1	=> '#6ce31c',);
 
 		protected $glang			= array();
 		protected $lang_file		= array();
@@ -61,7 +68,29 @@ if(!class_exists('div')) {
 		}
 
 		public function profilefields(){
-			// array with fields
+			$this->load_type('taktiker', array($this->lang));
+			$this->load_type('wache', array($this->lang));
+			$fields = array(
+				'taktiker'	=> array(
+					'type'			=> 'multiselect',
+					'category'		=> 'items',
+					'lang'			=> 'taktik',
+					'undeletable'	=> true,
+					'visible'		=> true,
+					'options'		=> $this->taktiker[$this->lang],
+					'sort'			=> 1,
+				),
+				'wache'	=> array(
+					'type'			=> 'multiselect',
+					'category'		=> 'items',
+					'lang'			=> 'wache',
+					'undeletable'	=> true,
+					'visible'		=> true,
+					'options'		=> $this->wache[$this->lang],
+					'sort'			=> 1,
+				),
+			);
+			return $fields;
 		}
 
 		public function admin_settings() {
